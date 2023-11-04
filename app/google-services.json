@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "868431337621",
+    "project_id": "padicare-75024",
+    "storage_bucket": "padicare-75024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868431337621:android:8504f0851bf6c4aed6a39c",
+        "android_client_info": {
+          "package_name": "com.example.padicare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArJzlBWNx2gH1B9tXAJGRdX-2ByOg0vX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
