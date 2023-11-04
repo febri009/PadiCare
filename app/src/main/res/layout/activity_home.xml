@@ -6,6 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+    <TextView
+        android:id="@+id/textViewWelcomeMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="25dp"
+        android:text="Selamat Datang,"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_centerInParent="true"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/textViewUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewWelcomeMessage"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="25dp"
+        android:gravity="center"
+        android:text="user"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_regular"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomApBar"
         android:layout_width="match_parent"

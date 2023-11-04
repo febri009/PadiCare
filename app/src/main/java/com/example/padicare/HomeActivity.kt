@@ -3,22 +3,29 @@ package com.example.padicare
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.padicare.databinding.ActivityHomeBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        val user = FirebaseAuth.getInstance().currentUser
+        val username = user?.email
 
-        bottomNavigationView.background = null
+        binding.apply {
+            textViewUsername.text = username
+        }
 
-        bottomNavigationView.menu.getItem(2).isEnabled = false
+        binding.bottomNavigationView.background = null
 
-        fab.setOnClickListener{
+        binding.bottomNavigationView.menu.getItem(2).isEnabled = false
+
+        binding.fab.setOnClickListener{
             Toast.makeText(this, "I'm working dude!", Toast.LENGTH_SHORT).show()
         }
     }

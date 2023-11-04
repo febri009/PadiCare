@@ -5,54 +5,50 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.example.padicare.HomeActivity
 import com.example.padicare.R
+import com.example.padicare.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
 
-        val btnRegister = findViewById<Button>(R.id.btnRegister)
-        val btnLogin = findViewById<Button>(R.id.btnLogin)
-        val etEmail = findViewById<EditText>(R.id.etEmail)
-        val etPassword = findViewById<EditText>(R.id.etPassword)
-
-        btnLogin.setOnClickListener {
-            val email = etEmail.text.toString().trim()
-            val password = etPassword.text.toString().trim()
+        binding.btnLogin.setOnClickListener {
+            val email = binding.etEmail.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
 
             if (email.isEmpty()){
-                etEmail.error = "Email tidak boleh kosong"
-                etEmail.requestFocus()
+                binding.etEmail.error = "Email tidak boleh kosong"
+                binding.etEmail.requestFocus()
                 return@setOnClickListener
             }
 
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                etEmail.error = "Email tidak valid"
-                etEmail.requestFocus()
+                binding.etEmail.error = "Email tidak valid"
+                binding.etEmail.requestFocus()
                 return@setOnClickListener
             }
 
             if (password.isEmpty() || password.length < 6){
-                etPassword.error = "Password harus lebih dari 6 karakter"
-                etPassword.requestFocus()
+                binding.etPassword.error = "Password harus lebih dari 6 karakter"
+                binding.etPassword.requestFocus()
                 return@setOnClickListener
             }
             loginUser(email, password)
         }
 
-        btnRegister.setOnClickListener{
+        binding.btnRegister.setOnClickListener{
             Intent(this@LoginActivity, RegisterActivity::class.java).also{
                 startActivity(it)
             }
