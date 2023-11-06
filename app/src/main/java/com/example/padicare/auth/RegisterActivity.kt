@@ -75,6 +75,7 @@ class RegisterActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Akun berhasil dibuat", Toast.LENGTH_SHORT).show()
 
+                    //Save user data to Firebase Firestore
                     userID = auth.currentUser?.uid ?: ""
                     val documentReference = fStore.collection("users").document(userID)
                     val user = HashMap<String, Any>()
@@ -85,6 +86,7 @@ class RegisterActivity : AppCompatActivity() {
                         Log.d(TAG, "onSuccess: user Profile is created for $userID")
                     }
 
+                    //Intent to HomeActivity
                     val intent = Intent(this@RegisterActivity, HomeActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)

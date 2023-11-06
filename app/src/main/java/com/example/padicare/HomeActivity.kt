@@ -2,9 +2,11 @@ package com.example.padicare
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.padicare.databinding.ActivityHomeBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeActivity : AppCompatActivity() {
 
@@ -14,10 +16,25 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Get firestore reference
+        val db = FirebaseFirestore.getInstance()
         val user = FirebaseAuth.getInstance().currentUser
-        val username = user?.email
+        val userId = user?.uid
 
-        binding.textViewUsername.text = username
+        if (userId != null){
+            //Get user doc from Firestore
+            db.collection("users").document(userId)
+                .get()
+                .addOnSuccessListener { documentSnapshot ->
+                    if (documentSnapshot.exists()){
+                        val name = documentSnapshot.getString("fName")
+                        binding.textViewUsername.text = name
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Log.d("FirestoreError", "Error getting user document: $e")
+                }
+        }
 
         binding.bottomNavigationView.background = null
 
