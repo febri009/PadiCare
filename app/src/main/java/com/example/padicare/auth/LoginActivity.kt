@@ -56,13 +56,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser(email: String, password: String) {
-        val progressBar = findViewById<ProgressBar>(R.id.progressBar2)
-        progressBar.visibility = View.VISIBLE
+        binding.progressBar2.visibility = View.VISIBLE
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this){
 
-                progressBar.visibility = View.GONE
+                binding.progressBar2.visibility = View.GONE
 
                 if (it.isSuccessful){
                     Intent(this@LoginActivity, HomeActivity::class.java).also{intent ->

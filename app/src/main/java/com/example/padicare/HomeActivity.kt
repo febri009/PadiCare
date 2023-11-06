@@ -17,9 +17,7 @@ class HomeActivity : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
         val username = user?.email
 
-        binding.apply {
-            textViewUsername.text = username
-        }
+        binding.textViewUsername.text = username
 
         binding.bottomNavigationView.background = null
 
