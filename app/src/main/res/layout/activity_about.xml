@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserInfoActivity">
+    tools:context=".AboutActivity">
 
     <TextView
-        android:id="@+id/tvInformasiAkun"
+        android:id="@+id/tvAbout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Informasi akun"
+        android:text="Tentang aplikasi"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/black"
@@ -22,20 +22,20 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
-        android:id="@+id/userImageView"
+        android:id="@+id/ivLogo"
         android:layout_width="220dp"
         android:layout_height="220dp"
-        android:src="@drawable/account"
+        android:src="@drawable/padicare"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInformasiAkun"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvAbout"/>
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvTentangApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nama"
+        android:text="Apa itu PadiCare?"
         android:layout_marginTop="25dp"
         android:layout_marginStart="25dp"
         android:fontFamily="@font/poppins_semibold"
@@ -44,27 +44,29 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userImageView"/>
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo"/>
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/tentangApp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nama"
+        android:text="PadiCare adalah aplikasi berbasis Kotlin dengan model Machine Learning CNN ResNet untuk mendeteksi penyakit pada tanaman padi, membantu petani merawat tanaman dengan informasi yang akurat."
+        android:justificationMode="inter_word"
         android:layout_marginTop="8dp"
         android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
         android:fontFamily="@font/poppins_light"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvName"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvTentangApp"/>
 
     <TextView
-        android:id="@+id/tvEmail"
+        android:id="@+id/tvDeveloper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="Dikembangkan oleh"
         android:layout_marginTop="25dp"
         android:layout_marginStart="25dp"
         android:fontFamily="@font/poppins_semibold"
@@ -73,20 +75,39 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"/>
+        app:layout_constraintTop_toBottomOf="@+id/tentangApp"/>
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/developer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="Barra Malik W (ML Engineer)\nFebriyanti Paramudita (Android Engineer)\nM. Satria Adjie (ML Engineer)"
+        android:justificationMode="inter_word"
         android:layout_marginTop="8dp"
         android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
         android:fontFamily="@font/poppins_light"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvDeveloper"/>
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/poppins_light"
+        android:gravity="center"
+        android:text="Version 1.0"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/developer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
