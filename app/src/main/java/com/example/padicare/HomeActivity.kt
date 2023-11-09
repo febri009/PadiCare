@@ -1,9 +1,9 @@
 package com.example.padicare
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import com.example.padicare.databinding.ActivityHomeBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -38,10 +38,23 @@ class HomeActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.background = null
 
-        binding.bottomNavigationView.menu.getItem(2).isEnabled = false
+        //binding.bottomNavigationView.menu.getItem(2).isEnabled = false
 
         binding.fab.setOnClickListener{
-            Toast.makeText(this, "I'm working dude!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this@HomeActivity, DetectionActivity::class.java)
+            startActivity(intent)
         }
+
+        binding.bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.miProfile -> {
+                    val intent = Intent(this@HomeActivity, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
+
     }
 }

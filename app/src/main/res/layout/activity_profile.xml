@@ -86,11 +86,6 @@
                 android:textColor="@color/dark_yellow"
                 android:fontFamily="@font/poppins_regular" />
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="200dp"
-                app:srcCompat="@drawable/ic_arrow_right" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -134,11 +129,6 @@
                 android:textColor="@color/dark_yellow"
                 android:fontFamily="@font/poppins_regular" />
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="188dp"
-                app:srcCompat="@drawable/ic_arrow_right" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -181,12 +171,6 @@
                 android:textSize="16sp"
                 android:textColor="@color/dark_yellow"
                 android:fontFamily="@font/poppins_regular" />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="265dp"
-                app:srcCompat="@drawable/ic_arrow_right" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
