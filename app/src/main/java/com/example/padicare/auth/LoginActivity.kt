@@ -53,6 +53,11 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
+        binding.btnForgotPassword.setOnClickListener {
+            Intent(this@LoginActivity, ResetActivity::class.java).also{
+                startActivity(it)
+            }
+        }
     }
 
     private fun loginUser(email: String, password: String) {
