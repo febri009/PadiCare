@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.padicare.auth.LoginActivity
 import com.example.padicare.databinding.ActivityHomeBinding
 import com.example.padicare.databinding.ActivityProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -16,6 +17,8 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val auth = FirebaseAuth.getInstance()
 
         //Get firestore reference
         val db = FirebaseFirestore.getInstance()
@@ -45,6 +48,14 @@ class ProfileActivity : AppCompatActivity() {
         binding.buttonTentangApp.setOnClickListener {
             val intent = Intent(this@ProfileActivity, AboutActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.buttonLogout.setOnClickListener {
+            auth.signOut()
+            Intent(this@ProfileActivity, LoginActivity::class.java).also {
+                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(it)
+            }
         }
     }
 }
