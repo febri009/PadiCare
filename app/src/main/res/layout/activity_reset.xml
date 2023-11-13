@@ -57,4 +57,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutEmailTextField"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:indeterminateTint="@color/dark_green"
+        app:layout_constraintEnd_toEndOf="@id/btnResetPassword"
+        app:layout_constraintStart_toStartOf="@id/btnResetPassword"
+        app:layout_constraintTop_toBottomOf="@id/btnResetPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

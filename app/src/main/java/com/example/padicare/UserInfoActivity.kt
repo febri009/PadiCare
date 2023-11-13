@@ -2,7 +2,9 @@ package com.example.padicare
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
+import android.widget.ToggleButton
 import com.example.padicare.databinding.ActivityHomeBinding
 import com.example.padicare.databinding.ActivityUserInfoBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -20,6 +22,7 @@ class UserInfoActivity : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
         val userId = user?.uid
 
+
         if (userId != null){
             //Get user doc from Firestore
             db.collection("users").document(userId)
@@ -28,8 +31,10 @@ class UserInfoActivity : AppCompatActivity() {
                     if (documentSnapshot.exists()){
                         val name = documentSnapshot.getString("fName")
                         val email = documentSnapshot.getString("email")
+                        val password = documentSnapshot.getString("password")
                         binding.name.text = name
                         binding.email.text = email
+                        binding.password.text = password
                     }
                 }
                 .addOnFailureListener { e ->

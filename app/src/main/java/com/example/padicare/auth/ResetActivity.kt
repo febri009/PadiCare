@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.padicare.R
@@ -20,6 +21,9 @@ class ResetActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnResetPassword.setOnClickListener {
+
+            binding.progressBar3.visibility = View.VISIBLE
+
             val email = binding.etEmail.text.toString().trim()
 
             if (email.isEmpty()){
@@ -35,6 +39,9 @@ class ResetActivity : AppCompatActivity() {
             }
 
             FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener {
+
+                binding.progressBar3.visibility = View.GONE
+
                 if (it.isSuccessful){
                     val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_reset_password, null)
                     val builder = AlertDialog.Builder(this).setView(dialogView)
@@ -49,11 +56,6 @@ class ResetActivity : AppCompatActivity() {
                         }
                     }
 
-//                    Toast.makeText(this, "Cek email untuk reset password", Toast.LENGTH_SHORT).show()
-//                    Intent(this@ResetActivity, LoginActivity::class.java).also{
-//                        it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//                        startActivity(it)
-//                    }
                 } else {
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
