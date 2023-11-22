@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
         - name: padicare-container
-          image: docker.io/febri009/padicare:latest
+          image: cimg/android:2023.09
 
 
