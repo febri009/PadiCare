@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: padicare
+    version: 1.0.0
+  name: example-deployment
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: example-deployment
+  template:
+    metadata:
+      labels:
+        app: padicare
+        version: 1.0.0
