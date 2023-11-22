@@ -21,5 +21,7 @@ spec:
       containers:
         - name: padicare-container
           image: cimg/android:2023.09
+      imagePullSecrets:
+        -name: padicare-registry
 
 
