@@ -2,10 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
+    circleci.com/cancel-release-enabled: "true"
+    circleci.com/helm-revision-number: "1"
+    circleci.com/job-number: "19"
+    circleci.com/operation-timeout: 30m
     circleci.com/project-id: ee246bd1-f0e8-4d22-b1b6-2d8ed533ae70
+    circleci.com/promote-release-enabled: "true"
+    circleci.com/restart-component-enabled: "true"
+    circleci.com/restore-version-enabled: "true"
+    circleci.com/retry-release-enabled: "true"
+    circleci.com/scale-component-enabled: "true"
   labels:
     app: padicare
-    version: 1.0.0
+    version: 1.0.10
   name: padicare-deployment
   namespace: default
 spec:
@@ -16,13 +25,13 @@ spec:
     metadata:
       labels:
         app: padicare
-        version: 1.0.0
+        version: 1.0.10
     spec:
       containers:
         - name: padicare-container
-          image: cimg/android:2023.09
-      imagePullSecrets:
-        - name: padicare-registry
+          image: thyrlian/android-sdk:latest
+          ports:
+            - containerPort: 8080
 
 
 
