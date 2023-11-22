@@ -4,14 +4,20 @@ metadata:
   labels:
     app: padicare
     version: 1.0.0
-  name: example-deployment
+  name: padicare-deployment
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: example-deployment
+      app: padicare
   template:
     metadata:
       labels:
         app: padicare
         version: 1.0.0
+    spec:
+      containers:
+        - name: padicare-container
+          image: docker.io/febri009/padicare:latest
+
+
