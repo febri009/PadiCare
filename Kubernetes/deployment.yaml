@@ -1,6 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    circleci.com/project-id: ee246bd1-f0e8-4d22-b1b6-2d8ed533ae70
   labels:
     app: padicare
     version: 1.0.0
