@@ -7,6 +7,8 @@ import android.util.Log
 import com.example.padicare.databinding.ActivityHomeBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
 class HomeActivity : AppCompatActivity() {
 
@@ -36,9 +38,20 @@ class HomeActivity : AppCompatActivity() {
                 }
         }
 
-        binding.bottomNavigationView.background = null
+        //Carousel
+        val carousel: ImageCarousel = findViewById(R.id.carousel)
+        carousel.registerLifecycle(lifecycle)
 
-        //binding.bottomNavigationView.menu.getItem(2).isEnabled = false
+        val list = mutableListOf<CarouselItem>()
+        list.add(CarouselItem(imageDrawable = R.drawable.awal))
+        list.add(CarouselItem(imageDrawable = R.drawable.kedua))
+        list.add(CarouselItem(imageDrawable = R.drawable.ketiga))
+        list.add(CarouselItem(imageDrawable = R.drawable.keempat))
+
+        carousel.setData(list)
+
+        //Bottom navigation
+        binding.bottomNavigationView.background = null
 
         binding.fab.setOnClickListener{
             val intent = Intent(this@HomeActivity, DetectionActivity::class.java)

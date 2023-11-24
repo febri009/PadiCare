@@ -31,10 +31,9 @@ class UserInfoActivity : AppCompatActivity() {
                     if (documentSnapshot.exists()){
                         val name = documentSnapshot.getString("fName")
                         val email = documentSnapshot.getString("email")
-                        val password = documentSnapshot.getString("password")
+
                         binding.name.text = name
                         binding.email.text = email
-                        binding.password.text = password
                     }
                 }
                 .addOnFailureListener { e ->

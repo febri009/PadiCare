@@ -80,9 +80,6 @@ jobs:
           root: .
           paths:
             - app/build/outputs/apk/release/
-      - deploy:
-          name: Deploy to Kubernetes
-          command: kubectl apply -f kubernetes/deployment.yaml
 
 workflows:
   workflow:
@@ -94,4 +91,13 @@ workflows:
       - release:
           requires:
             - test
+          docker:
+            - image: thyrlian/android-sdk:latest
+          steps:
+            - attach_workspace:
+                at: /workspace
+          run:
+            name: Deploy to  Kubernetes
+            command: |
+              kubectl apply -f /workspace/kubernetes/deployment.yaml
 

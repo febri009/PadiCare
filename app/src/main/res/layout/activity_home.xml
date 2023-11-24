@@ -34,6 +34,27 @@
         android:textStyle="bold"
         android:textColor="@color/black" />
 
+    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+        android:id="@+id/carousel"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="130dp"
+        app:showCaption="false"
+        app:showIndicator="true"
+        app:indicatorMargin="0dp"
+        app:imageScaleType="centerCrop"
+        app:showNavigationButtons="false"
+        app:showTopShadow="false"
+        app:showBottomShadow="false"
+        app:carouselType="SHOWCASE"
+        app:scaleOnScroll="true"
+        app:carouselGravity="CENTER"
+        app:scalingFactor="0.15"
+        app:autoWidthFixing="true"
+        app:autoPlay="true"
+        app:autoPlayDelay="3000"
+        app:infiniteCarousel="true"
+        app:touchToPause="true" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvBlog"
@@ -45,7 +66,6 @@
         app:cardBackgroundColor="@color/light_yellow_50"
         app:cardCornerRadius="20dp"
         app:contentPadding="10dp">
-
 
         <LinearLayout
             android:layout_width="match_parent"
