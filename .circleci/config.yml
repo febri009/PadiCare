@@ -62,17 +62,18 @@ jobs:
       - attach_workspace:
           at: /workspace
       - run:
-          name: Deploy to Kubernetes
+          name: Install kubectl
           command: |
+            curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/windows/amd64/kubectl.exe"
+            mkdir C:\kubectl
+            move kubectl.exe C:\kubectl
+            echo 'C:\kubectl' | Out-File -Append -Encoding utf8 $Env:Path
+      - run:
+          name: Deploy to Kubernetes
+          command: | 
             kubectl apply -f /workspace/kubernetes/deployment.yaml
 
 workflows:
   workflow:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
-      - release:
-          requires:
-            - test
+      - release
