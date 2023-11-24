@@ -57,29 +57,14 @@ jobs:
 
   release:
     docker:
-      - image: cimg/android:2023.09
+      - image: thyrlian/android-sdk:latest
     steps:
-      - checkout
-      - restore_cache:
-          key: android-orb-v1-
+      - attach_workspace:
+          at: /workspace
       - run:
-          name: Chmod permissions
-          command: sudo chmod +x ./gradlew
-      - run:
-          name: Download Dependencies
-          command: ./gradlew androidDependencies
-      - save_cache:
-          key: 'android-orb-v1-{{ epoch }}'
-          paths:
-            - ~/.android/build-cache
-            - ~/.android/cache
-      - run:
-          name: Build Release
-          command: ./gradlew assembleRelease
-      - persist_to_workspace:
-          root: .
-          paths:
-            - app/build/outputs/apk/release/
+          name: Deploy to Kubernetes
+          command: |
+            kubectl apply -f /workspace/kubernetes/deployment.yaml
 
 workflows:
   workflow:
@@ -91,13 +76,3 @@ workflows:
       - release:
           requires:
             - test
-          docker:
-            - image: thyrlian/android-sdk:latest
-          steps:
-            - attach_workspace:
-                at: /workspace
-          run:
-            name: Deploy to  Kubernetes
-            command: |
-              kubectl apply -f /workspace/kubernetes/deployment.yaml
-
