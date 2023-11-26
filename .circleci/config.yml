@@ -65,8 +65,11 @@ jobs:
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
-      - env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - run:
+          name: Set Environment Variables
+          command: |
+            echo "export GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $BASH_ENV
+            source $BASH_ENV
       - run:
           name: "Publish Release on GitHub"
           command: |
