@@ -64,9 +64,9 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command: |
-            go get github.com/febri009/my-binary
-            VERSION=$(my-binary --1.0)
-            ghr -t "${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}" -u "${febri009}" -r "${PadiCare}" -c "${CIRCLE_SHA1}" "${VERSION}" ./artifacts/
+            go get github.com/febri009/PadiCare
+            VERSION=$(my-binary --version)
+            ghr -t "${GITHUB_TOKEN}" -u "${CIRCLE_PROJECT_USERNAME}" -r "${CIRCLE_PROJECT_REPONAME}" -c "${CIRCLE_SHA1}" "${VERSION}" ./artifacts/
         
 
 workflows:
