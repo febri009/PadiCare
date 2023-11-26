@@ -64,18 +64,23 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command: |
-            go get github.com/tcnksm/ghr
             VERSION=$(./gradlew -q app:properties | grep "version:" | awk '{print $2}')
-            ghr -t "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" -u "febri009" -r "PadiCare" -c "${CIRCLE_SHA1}" -delete "${VERSION}" ./artifacts/
+            TAG_NAME="${VERSION}"
+            RELEASE_NAME="Release ${VERSION}"
+
+            curl -X POST "https://api.github.com/repos/febri009/PadiCare/releases" \
+              -H "Authorization: token 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" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "tag_name": "'"${TAG_NAME}"'",
+                "name": "'"${RELEASE_NAME}"'",
+                "body": "Release '"${VERSION}"'",
+                "draft": false,
+                "prerelease": false
+              }'
 
 workflows:
   version: 2
   workflow:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
-      - publish-github-release:
-          requires:
-            - test
+      - publish-github-release
