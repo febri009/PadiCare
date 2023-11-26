@@ -65,7 +65,7 @@ jobs:
           name: "Publish Release on GitHub"
           command: |
             VERSION=$(my-binary --version)
-            ghr -t ${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} -u ${febri009} -r ${PadiCare} -c ${CIRCLE_SHA1} ./artifacts/
+            ghr -t "${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}" -u "${febri009}" -r "${PadiCare}" -c "${CIRCLE_SHA1}" ./artifacts/
         
 
 workflows:
