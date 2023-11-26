@@ -55,25 +55,27 @@ jobs:
       - store_test_results:
           path: app/build/test-results
 
-  release:
+  publish-github-release:
     docker:
-      - image: thyrlian/android-sdk:latest
+      - image: cimg/android:2023.09
     steps:
       - attach_workspace:
-          at: /workspace
+          at: ./artifacts
       - run:
-          name: Install kubectl
+          name: "Publish Release on GitHub"
           command: |
-            curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/windows/amd64/kubectl.exe"
-            mkdir C:\kubectl
-            move kubectl.exe C:\kubectl
-            echo 'C:\kubectl' | Out-File -Append -Encoding utf8 $Env:Path
-      - run:
-          name: Deploy to Kubernetes
-          command: | 
-            kubectl apply -f /workspace/kubernetes/deployment.yaml
+            go get github.com/febri009
+            VERSION=$(my-binary 1.0)
+            ghr -t ${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} -u ${febri009} -r ${PadiCare} -c ${CIRCLE_SHA1} ./artifacts/
+        
 
 workflows:
   workflow:
     jobs:
-      - release
+      - build
+      - test:
+          requires:
+            build
+      - publish-github-release:
+          requires:
+            test
