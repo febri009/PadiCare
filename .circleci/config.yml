@@ -66,11 +66,6 @@ jobs:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
       - run:
-          name: Set Environment Variables
-          command: |
-            echo "export GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $BASH_ENV
-            source $BASH_ENV
-      - run:
           name: "Publish Release on GitHub"
           command: |
             VERSION=$(./gradlew -q app:properties | grep "version:" | awk '{print $2}')
@@ -78,7 +73,7 @@ jobs:
             RELEASE_NAME="Release ${VERSION}"
 
             curl -vvv -X POST "https://api.github.com/repos/febri009/PadiCare/releases" \
-              -H "Authorization: Bearer $GH_TOKEN}" \
+              -H "Authorization: Bearer ${secrets.GH_TOKEN}" \
               -H "Content-Type: application/json" \
               -d '{
                 "tag_name": "'"${TAG_NAME}"'",
