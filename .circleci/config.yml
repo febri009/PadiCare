@@ -64,17 +64,18 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command: |
-            VERSION=$(my-binary --version)
-            ghr -t "${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}" -u "${febri009}" -r "${PadiCare}" -c "${CIRCLE_SHA1}" ./artifacts/
-        
+            go get github.com/tcnksm/ghr
+            VERSION=$(./gradlew -q app:properties | grep "version:" | awk '{print $2}')
+            ghr -t "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" -u "febri009" -r "PadiCare" -c "${CIRCLE_SHA1}" -delete "${VERSION}" ./artifacts/
 
 workflows:
+  version: 2
   workflow:
     jobs:
       - build
       - test:
           requires:
-            build
+            - build
       - publish-github-release:
           requires:
-            test
+            - test
