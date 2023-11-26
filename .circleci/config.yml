@@ -65,6 +65,8 @@ jobs:
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
+      - env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - run:
           name: "Publish Release on GitHub"
           command: |
@@ -73,7 +75,7 @@ jobs:
             RELEASE_NAME="Release ${VERSION}"
 
             curl -vvv -X POST "https://api.github.com/repos/febri009/PadiCare/releases" \
-              -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+              -H "Authorization: Bearer $GH_TOKEN}" \
               -H "Content-Type: application/json" \
               -d '{
                 "tag_name": "'"${TAG_NAME}"'",
