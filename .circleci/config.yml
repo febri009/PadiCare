@@ -72,7 +72,7 @@ jobs:
             TAG_NAME="${VERSION}"
             RELEASE_NAME="Release ${VERSION}"
 
-            curl -X POST "https://api.github.com/repos/febri009/PadiCare/releases" \
+            curl -vvv -X POST "https://api.github.com/repos/febri009/PadiCare/releases" \
               -H "Authorization: Bearer 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" \
               -H "Content-Type: application/json" \
               -d '{
