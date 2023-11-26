@@ -72,8 +72,8 @@ jobs:
             TAG_NAME="${VERSION}"
             RELEASE_NAME="Release ${VERSION}"
 
-            curl -vvv "https://api.github.com/repos/febri009/PadiCare/releases" \
-              -H "Authorization: Bearer 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" \
+            curl -X POST "https://api.github.com/repos/febri009/PadiCare/releases" \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
               -H "Content-Type: application/json" \
               -d '{
                 "tag_name": "'"${TAG_NAME}"'",
@@ -87,4 +87,5 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - publish-github-release
+      - publish-github-release:
+          context: github
