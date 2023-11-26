@@ -68,8 +68,8 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command: |
-            VERSION=$(./gradlew -q app:properties | grep "version:" | awk '{print $2}')
-            TAG_NAME="${VERSION}"
+            VERSION="1.0"
+            TAG_NAME="v${VERSION}"
             RELEASE_NAME="Release ${VERSION}"
 
             curl -X POST "https://api.github.com/repos/febri009/PadiCare/releases" \
