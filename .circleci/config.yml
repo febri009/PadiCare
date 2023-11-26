@@ -57,31 +57,16 @@ jobs:
 
   publish-github-release:
     docker:
-      - image: cimg/android:2023.09
+      - image: circleci/golang:1.8
     steps:
-      - checkout
-      - restore_cache:
-          key: android-orb-v1-
-      - run:
-          name: Chmod permissions
-          command: sudo chmod +x ./gradlew
+      - attach_workspace:
+          at: ./artifacts
       - run:
           name: "Publish Release on GitHub"
           command: |
-            VERSION=$(./gradlew -q app:properties | grep "version:" | awk '{print $2}')
-            TAG_NAME="${VERSION}"
-            RELEASE_NAME="Release ${VERSION}"
-
-            curl -vvv "https://api.github.com/repos/febri009/PadiCare/releases" \
-              -H "Authorization: Bearer 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" \
-              -H "Content-Type: application/json" \
-              -d '{
-                "tag_name": "'"${TAG_NAME}"'",
-                "name": "'"${RELEASE_NAME}"'",
-                "body": "Release '"${VERSION}"'",
-                "draft": false,
-                "prerelease": false
-              }'
+            go get github.com/tcnksm/ghr
+            VERSION=$(my-binary --version)
+            ghr -t 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 -u febri009 -r PadiCare -c ${CIRCLE_SHA1} -delete ${VERSION} ./artifacts/
 
 workflows:
   version: 2
