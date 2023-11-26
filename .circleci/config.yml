@@ -59,8 +59,9 @@ jobs:
     docker:
       - image: cimg/android:2023.09
     steps:
-      - attach_workspace:
-          at: ./artifacts
+      - checkout
+      - restore_cache:
+          key: android-orb-v1-
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
