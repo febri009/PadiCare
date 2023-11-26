@@ -73,7 +73,7 @@ jobs:
             RELEASE_NAME="Release ${VERSION}"
 
             curl -vvv "https://api.github.com/repos/febri009/PadiCare/releases" \
-              -H "Authorization: Bearer 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" \
+              -H "Authorization: Bearer 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" \
               -H "Content-Type: application/json" \
               -d '{
                 "tag_name": "'"${TAG_NAME}"'",
