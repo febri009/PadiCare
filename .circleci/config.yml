@@ -34,24 +34,28 @@ jobs:
   test:
     executor:
       name: android/android-machine
+      tag: "202102-01"
       resource-class: large
-      tag: 2021.10.1
+
     steps:
       - checkout
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
-      - android/create-avd:
-          avd-name: myavd
-          install: true
-          system-image: system-images;android-29;default;x86
-      - android/start-emulator:
-          avd-name: myavd
-          no-window: true
-          restore-gradle-cache-prefix: v1a
-      - android/run-tests
-      - android/save-gradle-cache:
-          cache-prefix: v1a
+      - run:
+          name: installing emulator and Running Instrumentation tests
+          command:  |
+            sdkmanager "platform-tools" "platforms;android-29" "build-tools;30.0.0" "emulator"
+            sdkmanager "system-images;android-29;google_apis;x86"
+            echo no | avdmanager create avd -n test-emulator -k  "system-images;android-29;google_apis;x86"
+            emulator -avd test-emulator -noaudio -no-boot-anim -gpu off -no-window &
+            adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'
+            adb shell wm dismiss-keyguard
+            sleep 1
+            adb shell settings put global window_animation_scale 0
+            adb shell settings put global transition_animation_scale 0
+            adb shell settings put global animator_duration_scale 0
+            ./gradlew connectedAndroidTest
 
   publish-github-release:
     docker:
