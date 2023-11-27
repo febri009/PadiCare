@@ -49,6 +49,17 @@ jobs:
           avd-name: myavd
           no-window: true
           restore-gradle-cache-prefix: v1a
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          key: 'android-orb-v1-{{ epoch }}'
+          paths:
+            - ~/.android/build-cache
+            - ~/.android/cache
+      - run:
+          name: Run Build
+          command: ./gradlew build
       - android/run-tests
       - android/save-gradle-cache:
           cache-prefix: v1a
