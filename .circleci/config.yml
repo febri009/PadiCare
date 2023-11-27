@@ -52,6 +52,9 @@ jobs:
       - run:
           name: Run Tests
           command: ./gradlew connectedAndroidTest
+      - run:
+          name: Generate Jacoco Reports
+          command: ./gradlew jacocoTestReport
       - store_test_results:
           path: app/build/test-results
 
@@ -87,11 +90,4 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
-      - publish-github-release:
-          requires:
-            - test
-          context: github
+      - test
