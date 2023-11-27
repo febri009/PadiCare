@@ -38,6 +38,9 @@ jobs:
       tag: 2021.10.1
     steps:
       - checkout
+      - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
       - android/create-avd:
           avd-name: myavd
           install: true
@@ -46,9 +49,6 @@ jobs:
           avd-name: myavd
           no-window: true
           restore-gradle-cache-prefix: v1a
-      - run:
-          name: Chmod permissions
-          command: sudo chmod +x ./gradlew
       - android/run-tests
       - android/save-gradle-cache:
           cache-prefix: v1a
