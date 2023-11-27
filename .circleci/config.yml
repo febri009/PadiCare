@@ -36,6 +36,8 @@ jobs:
       name: android/android-machine
       resource-class: large
       tag: 2021.10.1
+    environment:
+      JVM_OPTS: -Dorg.gradle.java.home=/usr/lib/jvm/java-11-openjdk-amd64
     steps:
       - checkout
       - run:
@@ -49,6 +51,9 @@ jobs:
           avd-name: myavd
           no-window: true
           restore-gradle-cache-prefix: v1a
+      - run:
+          name: Set JDK 11
+          command: sudo update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
       - android/run-tests
       - android/save-gradle-cache:
           cache-prefix: v1a
