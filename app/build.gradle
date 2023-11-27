@@ -8,6 +8,7 @@ plugins {
 android {
     namespace 'com.example.padicare'
     compileSdk 34
+    buildToolsVersion 34
 
     defaultConfig {
         applicationId "com.example.padicare"
