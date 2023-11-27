@@ -33,7 +33,7 @@ jobs:
 
   test:
     executor:
-      name: circleci/android-machine
+      name: cimg/android-machine
       resource-class: large
       tag: 2021.10.1
     steps:
