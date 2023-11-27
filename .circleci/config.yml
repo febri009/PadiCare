@@ -32,10 +32,9 @@ jobs:
           destination: artifact-file
 
   test:
-    executor:
-      name: android/android-machine
-      tag: "202102-01"
-      resource-class: large
+    machine:
+      image: android:202102-01
+    resource-class: large
 
     steps:
       - checkout
