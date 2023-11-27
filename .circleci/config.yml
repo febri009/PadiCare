@@ -32,7 +32,7 @@ jobs:
           destination: artifact-file
 
   test:
-    executor: circleci/android:api-30
+    executor: circleci/android-machine
     steps:
       - checkout
       - restore_cache:
