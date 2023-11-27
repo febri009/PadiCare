@@ -34,6 +34,8 @@ jobs:
   test:
     docker:
       - image: cimg/android:2023.09
+    environment:
+      JVM_OPTS: -Xmx2048m
     steps:
       - checkout
       - restore_cache:
@@ -50,7 +52,7 @@ jobs:
             - ~/.android/build-cache
             - ~/.android/cache
       - run:
-          name: Run Tests
+          name: Run Instrumentes Tests
           command: ./gradlew connectedAndroidTest
       - run:
           name: Generate Jacoco Reports
