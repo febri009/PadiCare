@@ -29,11 +29,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = '1.8'
     }
 }
 
@@ -54,6 +54,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.7.5'
     implementation 'androidx.test.ext:junit-ktx:1.1.5'
     implementation 'me.relex:circleindicator:2.1.6'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.10"
     implementation 'org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.1.0'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-core:3.11.2'
