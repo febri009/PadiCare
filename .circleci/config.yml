@@ -32,22 +32,44 @@ jobs:
           destination: artifact-file
 
   test:
-    override:
-      # start the emulator
-      - emulator -avd circleci-android31 -no-audio -no-window:
-          background: true
-          parallel: true
-      # wait for it to have booted
-      - circle-android wait-for-boot
-      # unlock the emulator screen
-      - sleep 30
-      - adb shell input keyevent 82
-      # run tests  against the emulator.
-      - ./gradlew connectedAndroidTest -PdisablePreDex
-      # copy the build outputs to artifacts
-      - cp -r app/build/outputs $CIRCLE_ARTIFACTS
-      # copy the test results to the test results directory.
-      - cp -r app/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
+    docker:
+      - image: circleci/android:api-31
+
+    working_directory: ~/app
+
+    steps:
+      - checkout
+
+      # Start the emulator
+      - run:
+          name: Start Emulator
+          command: |
+            emulator -avd circleci-android31 -no-audio -no-window:
+              background: true
+              parallel: true
+
+      # Wait for the emulator to boot
+      - run:
+          name: Wait for Emulator
+          command: |
+            circle-android wait-for-boot
+            sleep 30
+            adb shell input keyevent 82
+
+      # Run tests against the emulator
+      - run:
+          name: Run Tests
+          command: ./gradlew connectedAndroidTest -PdisablePreDex
+
+      # Copy build outputs to artifacts
+      - run:
+          name: Copy Build Outputs
+          command: cp -r app/build/outputs $CIRCLE_ARTIFACTS
+
+      # Copy test results to the test results directory
+      - run:
+          name: Copy Test Results
+          command: cp -r app/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
 
 
   publish-github-release:
