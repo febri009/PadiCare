@@ -34,28 +34,35 @@ jobs:
   test:
     docker:
       - image: cimg/android:2023.09
-
     steps:
       - checkout
-      - run:
-          name: Accept licenses
-          command: yes | sdkmanager --licenses || true
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
       - run:
-          name: installing emulator and Running Instrumentation tests
-          command:  |
-            sdkmanager "platform-tools" "platforms;android-29" "build-tools;30.0.0" "emulator"
-            sdkmanager "system-images;android-29;google_apis;arm64-v8a"
-            echo no | avdmanager create avd -n test-emulator -k "system-images;android-29;google_apis;x86_64" -f
-            emulator -avd test-emulator -noaudio -no-boot-anim -gpu off -no-window &
+          name: Accept licenses
+          command: yes | sdkmanager --licenses
+      - run:
+          name: Install SDK components
+          command: sdkmanager "platform-tools" "platforms;android-29" "build-tools;30.0.0" "emulator" "system-images;android-29;google_apis;x86"
+      - run:
+          name: Create AVD
+          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-29;google_apis;x86" --force
+      - run:
+          name: Launch emulator
+          command: emulator -avd test-emulator -noaudio -no-boot-anim -gpu off -no-window &
+      - run:
+          name: Configure emulator
+          command: |
             adb shell wm dismiss-keyguard
             sleep 1
             adb shell settings put global window_animation_scale 0
             adb shell settings put global transition_animation_scale 0
             adb shell settings put global animator_duration_scale 0
-            ./gradlew connectedAndroidTest
+      - run:
+          name: Run Tests
+          command: ./gradlew connectedAndroidTest
+
 
   publish-github-release:
     docker:
