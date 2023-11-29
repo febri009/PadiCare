@@ -41,6 +41,9 @@ jobs:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
       - run:
+          name: Accept Android licenses
+          command: yes | sdkmanager --licenses || true
+      - run:
           name: Run Firebase Test Lab
           command: |
             sdkmanager "platform-tools" "platforms;android-29" "build-tools;30.0.0"
