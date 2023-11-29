@@ -33,8 +33,8 @@ jobs:
 
   test:
     docker:
-      image: cimg/android:2023.09
-    resource_class: large
+      - image: cimg/android:2023.09
+
     steps:
       - checkout
       - run:
