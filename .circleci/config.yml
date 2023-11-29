@@ -33,24 +33,35 @@ jobs:
 
   test:
     docker:
-      - image: circleci/android:api-26-alpha
+      - image: circleci/android:api-31-alpha
+
     steps:
       - checkout
+
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
+
       - run:
           name: Accept licenses
           command: yes | sdkmanager --licenses || true
+
       - run:
           name: Install SDK components
-          command: sdkmanager "platform-tools" "platforms;android-29" "build-tools;30.0.0" "emulator" "system-images;android-29;google_apis;x86"
+          command: sdkmanager "platform-tools" "platforms;android-31" "build-tools;31.0.0" "emulator" "system-images;android-31;google_apis;x86"
+
       - run:
           name: Create AVD
-          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-29;google_apis;x86" --force
+          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-31;google_apis;x86" --force
+
       - run:
           name: Launch emulator
           command: emulator -avd test-emulator -noaudio -no-boot-anim -gpu off -no-window &
+
+      - run:
+          name: Wait for emulator
+          command: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'
+
       - run:
           name: Run Tests
           command: ./gradlew connectedAndroidTest
