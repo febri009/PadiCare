@@ -47,7 +47,7 @@ jobs:
           command: sdkmanager "platform-tools" "platforms;android-29" "build-tools;30.0.0" "emulator" "system-images;android-29;google_apis;x86"
       - run:
           name: Create AVD
-          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-29;google_apis;x86" --force
+          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-29;google_apis;x86" --force -c fastboot -p "hw.accelerometer=yes"
       - run:
           name: Launch emulator
           command: emulator -avd test-emulator -noaudio -no-boot-anim -no-window & -accel on &
