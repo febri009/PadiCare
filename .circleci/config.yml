@@ -52,11 +52,11 @@ jobs:
 
       - run:
           name: Create AVD
-          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-30;google_apis;x86" --force
+          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-30;google_apis;arm64-v8a" --force
 
       - run:
           name: Launch emulator
-          command: emulator -avd test-emulator -noaudio -no-boot-anim -gpu off -no-window
+          command: emulator -avd test-emulator -noaudio -no-boot-anim -gpu off -no-window &
 
       - run:
           name: Wait for emulator
