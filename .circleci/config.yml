@@ -33,7 +33,7 @@ jobs:
 
   test:
     docker:
-      - image: circleci/android:api-30
+      - image: circleci/android:api-22
 
     working_directory: ~/app
 
@@ -44,7 +44,7 @@ jobs:
       - run:
           name: Start Emulator
           command: |
-            emulator -avd circleci-android30 -no-audio -no-window:
+            emulator -avd circleci-android22 -no-audio -no-window:
               background: true
               parallel: true
 
