@@ -50,7 +50,7 @@ jobs:
           command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-29;google_apis;x86" --force
       - run:
           name: Launch emulator
-          command: emulator -avd test-emulator -noaudio -no-boot-anim -no-window & -accel on
+          command: emulator -avd test-emulator -noaudio -no-boot-anim -no-window & -accel on &
       - run:
           name: Wait for emulator
           command: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;' && adb shell input keyevent 82
