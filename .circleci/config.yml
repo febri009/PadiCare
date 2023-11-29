@@ -48,11 +48,11 @@ jobs:
 
       - run:
           name: Install SDK components
-          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-30;google_apis;x86" --force
+          command: sdkmanager "platform-tools" "platforms;android-30" "build-tools;30.0.0" "emulator" "system-images;android-30;google_apis;x86"
 
       - run:
           name: Create AVD
-          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-31;google_apis;x86" --force
+          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-30;google_apis;x86" --force
 
       - run:
           name: Launch emulator
