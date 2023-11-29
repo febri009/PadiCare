@@ -45,11 +45,9 @@ jobs:
       - run:
           name: Install SDK components
           command: sdkmanager "platform-tools" "platforms;android-29" "build-tools;30.0.0" "emulator" "system-images;android-29;google_apis;x86"
-
       - run:
           name: Create AVD
-          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-29;google_apis;x86" --force --device "Nexus 5X" --abi "google_apis/x86" --package "system-images;android-29;google_apis;x86" -c 100M
-
+          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-29;google_apis;x86" --force
       - run:
           name: Launch emulator
           command: emulator -avd test-emulator -noaudio -no-boot-anim -no-window & -accel on &
@@ -69,7 +67,7 @@ jobs:
 ##            adb shell settings put global animator_duration_scale 0
 ##      - run:
 ##          name: Run Tests
-##         command: ./gradlew connectedAndroidTest
+##          command: ./gradlew connectedAndroidTest
 
       - store_artifacts:
           path: app/build/reports
@@ -111,4 +109,4 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - test:
+      - test
