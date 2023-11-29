@@ -52,9 +52,6 @@ jobs:
           name: Launch emulator
           command: emulator -avd test-emulator -noaudio -no-boot-anim -gpu off -no-window &
       - run:
-          name: Wait for emulator
-          command: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'
-      - run:
           name: Configure emulator
           command: |
             adb shell wm dismiss-keyguard
