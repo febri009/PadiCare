@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
-    id 'jacoco'
 }
 
 android {
@@ -35,10 +34,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-}
-
-jacoco {
-    toolVersion = "0.8.7"
 }
 
 dependencies {
