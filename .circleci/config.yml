@@ -35,42 +35,32 @@ jobs:
     docker:
       - image: cimg/android:2023.09
 
-    working_directory: ~/app
-
     steps:
       - checkout
 
-      # Start the emulator
       - run:
-          name: Start Emulator
-          command: |
-            emulator -avd circleci-android31 -no-audio -no-window:
-              background: true
-              parallel: true
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
 
-      # Wait for the emulator to boot
       - run:
-          name: Wait for Emulator
-          command: |
-            circle-android wait-for-boot
-            sleep 30
-            adb shell input keyevent 82
+          name: Accept licenses
+          command: yes | sdkmanager --licenses || true
 
-      # Run tests against the emulator
+      - run:
+          name: Install SDK components
+          command: sdkmanager "platform-tools" "platforms;android-30" "build-tools;30.0.0" "emulator" "system-images;android-30;google_apis;x86"
+
+      - run:
+          name: Create AVD
+          command: echo no | avdmanager create avd -n test-emulator -k "system-images;android-30;google_apis;arm64-v8a" --force
+
+      - run:
+          name: Launch emulator
+          command: emulator -avd test-emulator -noaudio -no-boot-anim -gpu off -no-window &
+
       - run:
           name: Run Tests
-          command: ./gradlew connectedAndroidTest -PdisablePreDex
-
-      # Copy build outputs to artifacts
-      - run:
-          name: Copy Build Outputs
-          command: cp -r app/build/outputs $CIRCLE_ARTIFACTS
-
-      # Copy test results to the test results directory
-      - run:
-          name: Copy Test Results
-          command: cp -r app/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
-
+          command: ./gradlew connectedAndroidTest
 
   publish-github-release:
     docker:
