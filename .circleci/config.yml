@@ -33,7 +33,7 @@ jobs:
 
   test:
     docker:
-      - image: 'cimg/android:29-node12'
+      - image: cimg/android:2023.09
     steps:
       - checkout
       - run:
