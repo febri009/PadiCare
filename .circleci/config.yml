@@ -51,11 +51,10 @@ jobs:
       - run:
           name: Launch emulator
           command: emulator -avd test-emulator -noaudio -no-boot-anim -no-window & -accel on &
-##     - run:
-##          name: Wait for emulator
-##          command: |
-##            circle-android wait-for-boot
-##            adb shell input keyevent 82
+      - run:
+          name: Wait for emulator
+          command: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'
+          timeout: 20m
 ##      - run:
 ##          name: Configure emulator
 ##          command: |
