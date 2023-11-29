@@ -53,8 +53,8 @@ jobs:
           command: emulator -avd test-emulator -noaudio -no-boot-anim -no-window & -accel on &
       - run:
           name: Wait for emulator
-          command: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'
-          timeout: 20m
+          command: adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;' && adb shell input keyevent 82
+
 ##      - run:
 ##          name: Configure emulator
 ##          command: |
@@ -107,4 +107,4 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - test
+      - test:
