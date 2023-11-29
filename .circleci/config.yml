@@ -36,7 +36,9 @@ jobs:
       - image: 'cimg/android:29-node12'
     steps:
       - checkout
-      - android/bootstrap
+      - run:
+          name: Install Dependencies
+          command: echo y | sdkmanager "platforms;android-29" "build-tools;29.0.2" "extras;android;m2repository" "extras;google;m2repository"
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
