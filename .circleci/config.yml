@@ -48,7 +48,7 @@ jobs:
           command:  |
             sdkmanager "platform-tools" "platforms;android-29" "build-tools;30.0.0" "emulator"
             sdkmanager "system-images;android-29;google_apis;arm64-v8a"
-            echo no | avdmanager create avd -n test-emulator -k "system-images;android-29;google_apis;arm64-v8a" -- force
+            echo no | avdmanager create avd -n test-emulator -k "system-images;android-29;google_apis;arm64-v8a" -f
             emulator -avd test-emulator -noaudio -no-boot-anim -gpu off -no-window &
             adb shell wm dismiss-keyguard
             sleep 1
