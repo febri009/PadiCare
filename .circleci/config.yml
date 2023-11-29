@@ -52,14 +52,6 @@ jobs:
           name: Launch emulator
           command: emulator -avd test-emulator -noaudio -no-boot-anim -gpu off -no-window &
       - run:
-          name: Configure emulator
-          command: |
-            adb shell wm dismiss-keyguard
-            sleep 1
-            adb shell settings put global window_animation_scale 0
-            adb shell settings put global transition_animation_scale 0
-            adb shell settings put global animator_duration_scale 0
-      - run:
           name: Run Tests
           command: ./gradlew connectedAndroidTest
 
