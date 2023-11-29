@@ -41,7 +41,7 @@ jobs:
           command: sudo chmod +x ./gradlew
       - run:
           name: Accept licenses
-          command: yes | sdkmanager --licenses
+          command: yes | sdkmanager --licenses || true
       - run:
           name: Install SDK components
           command: sdkmanager "platform-tools" "platforms;android-29" "build-tools;30.0.0" "emulator" "system-images;android-29;google_apis;x86"
