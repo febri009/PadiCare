@@ -22,6 +22,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -51,6 +54,7 @@ dependencies {
     implementation 'me.relex:circleindicator:2.1.6'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.10"
     implementation 'org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.1.0'
+
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-core:3.11.2'
     testImplementation 'org.mockito:mockito-android:3.11.2'
@@ -58,4 +62,6 @@ dependencies {
     testImplementation 'androidx.test:core:1.4.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    debugImplementation 'org.jacoco:org.jacoco.agent:0.8.7:runtime'
 }
