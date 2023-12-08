@@ -23,27 +23,26 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:background="@android:color/white"
+        android:background="@drawable/rounded_edittext"
         android:orientation="horizontal"
-        android:elevation="20dp"
         android:weightSum="10"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_alignParentLeft="true">
 
         <EditText
             android:id="@+id/chat_message_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="8"
-            android:background="@android:color/white"
-            android:ems="10"
-            android:textSize="22sp"
-            android:textColor="#000000"
-            android:hint="Enter Message..."
-            android:inputType="textPersonName"
-            android:paddingBottom="12dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="14dp" />
+            android:ems="15"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_regular"
+            android:textStyle="bold"
+            android:hint="Ketik pesan"
+            android:padding="18dp"
+            android:background="@null"/>
 
         <ImageButton
             android:id="@+id/chat_send_btn"

@@ -6,5 +6,4 @@ data class User(
 
     val displayName: String? = "",
 
-    //val imageUrl: String = ""
 )

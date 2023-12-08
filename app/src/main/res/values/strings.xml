@@ -80,5 +80,5 @@
     <string name="result_percentage">80%</string>
     <string name="treatment">Langkah Penanganan :</string>
     <string name="result_treatment">1. Sanitasi kebun\n2. Mengurangi kelembaban\n3. Daun-daun bawah yang terinfeksi secepatnya diambil agar tidak menjadi sumber penularan\n4. Pemanenan tepat waktu\n5. Eradikasi tanaman yang sakit\n6. Penyemprotan dengan fungisida berbahan aktif Mancozeb, Captan, Captafol, Metil tiofanat, Benomil , Antracol</string>
-    <string name="beranda">Beranda</string>
+    <string name="beranda">Kembali ke Home</string>
 </resources>

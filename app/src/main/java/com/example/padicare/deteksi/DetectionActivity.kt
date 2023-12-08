@@ -73,15 +73,8 @@ class DetectionActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
-        backButton = binding.backButton
         val galleryButton = binding.galleryButton
         val camera = binding.cameraButton
-
-        // Tombol kembali di klik
-        backButton.setOnClickListener {
-            val intent = Intent(this@DetectionActivity, HomeActivity::class.java)
-            startActivity(intent)
-        }
 
         // Tombol galeri di klik
         galleryButton.setOnClickListener {
@@ -144,10 +137,7 @@ class DetectionActivity : AppCompatActivity() {
                     it.data?.getSerializableExtra("picture")
                 } as? File
 
-                val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
-
                 myFile?.let { file ->
-//                rotateFile(file, isBackCamera)
                     getFile = file
                     binding.ivResultImage.setImageBitmap(BitmapFactory.decodeFile(file.path))
                 }
@@ -196,37 +186,6 @@ class DetectionActivity : AppCompatActivity() {
                         Toast.LENGTH_LONG
                     ).show()
                     val result = response.body()
-
-                    // fungsi menambah data history deteksi ke server
-                    val client2 = ApiConfig.getApiService().addHistoryDisease(
-                        token,
-                        result!!.imageUrl,
-                        result.predictions[0].disease.name
-                    )
-
-//                    client2.enqueue(object : Callback<AddHistoryDiseaseResponse> {
-//                        override fun onResponse(
-//                            call: Call<AddHistoryDiseaseResponse>,
-//                            response: Response<AddHistoryDiseaseResponse>
-//                        ) {
-//                            Toast.makeText(
-//                                this@DetectionActivity,
-//                                "Berhasil Upload History",
-//                                Toast.LENGTH_SHORT
-//                            ).show()
-//                        }
-//
-//                        override fun onFailure(
-//                            call: Call<AddHistoryDiseaseResponse>,
-//                            t: Throwable
-//                        ) {
-//                            Toast.makeText(
-//                                this@DetectionActivity,
-//                                "Gagal Upload History",
-//                                Toast.LENGTH_SHORT
-//                            ).show()
-//                        }
-//                    })
 
                     val intent = Intent(this@DetectionActivity, DetectionResultActivity::class.java)
                     if (result != null) {

@@ -47,6 +47,7 @@ class CreatePostActivity : AppCompatActivity() {
         postDao = PostDao()
         binding.postButton.setOnClickListener {
             val input = binding.postInput.text.toString()
+
             if(input.isNotEmpty() && filePath.toString().isNotEmpty()) {
                 binding.postButton.isEnabled=false
                 binding.chooseImageButton.isEnabled=false
@@ -54,6 +55,7 @@ class CreatePostActivity : AppCompatActivity() {
                 Toast.makeText(this,
                     "Uploading !!",
                     Toast.LENGTH_SHORT).show()
+
 
                 val currentTime = System.currentTimeMillis()
                 val randomID= currentUserId +currentTime.toString()
@@ -70,24 +72,25 @@ class CreatePostActivity : AppCompatActivity() {
                     }
                     ref.downloadUrl
                 }.addOnCompleteListener {
-                    if(it.isSuccessful) {
-                        downloadUrl=it.result.toString()
-                        //Log.i("download",downloadUrl)
+                    runOnUiThread {
+                        if(it.isSuccessful) {
+                            downloadUrl=it.result.toString()
+                            //Log.i("download",downloadUrl)
 
-                        postDao.addPost(input, downloadUrl)
+                            postDao.addPost(input, downloadUrl)
 
-                        binding.uploadingProgressBar.visibility=View.GONE
-                        binding.chooseImageButton.isEnabled=true
-                        binding.postButton.isEnabled=true
+                            binding.uploadingProgressBar.visibility=View.GONE
+                            binding.chooseImageButton.isEnabled=true
+                            binding.postButton.isEnabled=true
 
-                        finish()
+                            finish()
+                        } else {
+                            Toast.makeText(applicationContext,
+                                "Please add some text and an image in the post",
+                                Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
-            } else
-            {
-                Toast.makeText(applicationContext,
-                    "Please add some text and an image in the post",
-                    Toast.LENGTH_SHORT).show()
             }
         }
         setUpRecyclerView()

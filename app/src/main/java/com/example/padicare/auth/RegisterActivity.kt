@@ -9,6 +9,8 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import com.example.padicare.HomeActivity
+import com.example.padicare.blog.dao.UserDao
+import com.example.padicare.blog.model.User
 import com.example.padicare.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -107,4 +109,5 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
+
 }

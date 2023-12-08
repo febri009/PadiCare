@@ -29,7 +29,6 @@ class BlogActivity : AppCompatActivity(), IPostAdapter {
         setContentView(binding.root)
 
         auth = Firebase.auth
-        val user = auth.currentUser
 
         binding.fab.setOnClickListener{
             val intent = Intent(this, CreatePostActivity::class.java)
@@ -49,6 +48,7 @@ class BlogActivity : AppCompatActivity(), IPostAdapter {
 
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.itemAnimator = null
     }
 
     override fun onStart() {

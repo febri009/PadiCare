@@ -1,123 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
     tools:context=".deteksi.DetectionResultActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".ui.detection.DetectionResultActivity">
-
-        <TextView
-            android:id="@+id/title_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/title_hasil_deteksi"
-            android:textAppearance="@style/title_page"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_result_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/result_title_detect"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_page" />
+        android:layout_height="250dp">
 
         <ImageView
-            android:id="@+id/iv_result_image"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_result_title"
-            app:srcCompat="@drawable/ic_picture" />
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:background="@color/light_green_50"
+            android:scaleType="fitXY"/>
 
         <TextView
-            android:id="@+id/tv_title_percentage"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/percentage_accurate"
+            android:text="Hasil Deteksi"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_result_image" />
+            android:textSize="18dp"
+            android:gravity="center"/>
 
-        <TextView
-            android:id="@+id/tv_result_percentage"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/iv_detect"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:background="@drawable/detect"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"/>
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/bg_rounded_rect"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:justificationMode="inter_word"
-            android:lineSpacingExtra="2sp"
-            android:text="@string/result_percentage"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_title_percentage"
-            app:layout_constraintStart_toEndOf="@+id/tv_title_percentage"
-            app:layout_constraintTop_toTopOf="@+id/tv_title_percentage" />
+            android:layout_margin="35dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_title_treatment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/treatment"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_percentage" />
+            <ImageView
+                android:id="@+id/iv_result_image"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_picture" />
 
-        <TextView
-            android:id="@+id/tv_result_treatment"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="28dp"
-            android:justificationMode="inter_word"
-            android:lineSpacingExtra="2sp"
-            android:text="@string/result_treatment"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_treatment" />
+            <TextView
+                android:id="@+id/tv_cafe_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Penyakit"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/dark_yellow"
+                android:textSize="16sp"
+                android:gravity="start|end"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/home_button"
-            android:layout_width="340dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/button_homepage"
-            android:text="@string/beranda"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_result_treatment" />
+            <TextView
+                android:id="@+id/tv_result_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/result_title_detect"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/tv_title_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/percentage_accurate"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/dark_yellow"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_result_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/result_percentage"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_title_treatment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/treatment"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/dark_yellow"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_result_treatment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:lineSpacingExtra="2sp"
+                android:text="@string/result_treatment"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

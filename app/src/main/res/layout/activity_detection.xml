@@ -11,21 +11,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/title_deteksi_tanaman"
-        android:textAppearance="@style/title_page"
+        android:text="Deteksi Padi-mu"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="20dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        app:layout_constraintBottom_toBottomOf="@+id/title_page"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/title_page"
-        app:srcCompat="@drawable/ic_back" />
 
     <ImageView
         android:id="@+id/iv_result_image"
@@ -43,51 +35,45 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/choose_source"
-        android:textColor="@color/black"
+        android:text="Unggah gambar melalui: "
+        android:fontFamily="@font/poppins_regular"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_result_image" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/gallery_button"
-        android:layout_width="160dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/button_source_gallery"
+        android:layout_margin="20dp"
         android:text="@string/galeri"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:paddingLeft="40dp"
-        android:paddingRight="35dp"
-        android:drawableStart="@drawable/galeri"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_source" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/camera_button"
-        android:layout_width="160dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="28dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:background="@drawable/button_source_camera"
-        android:drawableStart="@drawable/kamera"
-        android:paddingLeft="40dp"
-        android:paddingRight="35dp"
         android:text="@string/kamera"
         android:textColor="@color/white"
         android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_source" />
+        app:layout_constraintTop_toBottomOf="@+id/gallery_button" />
 
     <com.example.padicare.customview.DetectionButton
         android:id="@+id/detection_button"
         android:layout_width="340dp"
-        android:layout_height="41dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="32dp"
+        android:fontFamily="@font/poppins_regular"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:enabled="false"
@@ -101,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
+        android:indeterminateTint="@color/dark_yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

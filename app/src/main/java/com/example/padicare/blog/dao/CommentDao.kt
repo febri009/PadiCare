@@ -2,6 +2,7 @@ package com.example.padicare.blog.dao
 
 import com.example.padicare.blog.model.Comment
 import com.example.padicare.blog.model.User
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -17,17 +18,21 @@ class CommentDao {
     fun addComment(text:String,postId:String)
     {
         GlobalScope.launch {
-            val currentUserId = auth.currentUser!!.uid
-            val userDao = UserDao()
-            val user = userDao.getUserById(currentUserId).await().toObject(User::class.java)!!
+            val user = FirebaseAuth.getInstance().currentUser
+            val userId = user?.uid
 
-            val currentTime = System.currentTimeMillis()
-            val comment=Comment(currentUserId,text,user.displayName,currentTime)
+            if (userId != null){
+                val userDao = UserDao()
+                val user = userDao.getUserById(userId).await().toObject(User::class.java)!!
 
-            commentsCollections.document(postId)
-                .collection("comments")
-                .document()
-                .set(comment)
+                val currentTime = System.currentTimeMillis()
+                val comment=Comment(userId,text,user.displayName,currentTime)
+
+                commentsCollections.document(postId)
+                    .collection("comments")
+                    .document()
+                    .set(comment)
+            }
         }
     }
 }

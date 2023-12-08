@@ -13,7 +13,7 @@
             />
         <path
             android:pathData="M0 0V41H400V0"
-            android:fillColor="#F77ED957"
+            android:fillColor="@color/light_green_50"
             />
     </group>
 </vector>

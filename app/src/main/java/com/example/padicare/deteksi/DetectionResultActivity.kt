@@ -39,17 +39,11 @@ class DetectionResultActivity : AppCompatActivity() {
         Glide.with(this)
             .load(diseaseImage)
             .into(resultImage)
-
-        val homeButton = binding.homeButton
-        homeButton.setOnClickListener {
-            val intent = Intent(this@DetectionResultActivity, HomeActivity::class.java)
-            startActivity(intent)
-        }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        val intent = Intent(this@DetectionResultActivity, HomeActivity::class.java)
-        startActivity(intent)
-    }
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//        val intent = Intent(this@DetectionResultActivity, HomeActivity::class.java)
+//        startActivity(intent)
+//    }
 }
