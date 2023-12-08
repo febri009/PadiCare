@@ -4,7 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.padicare.blog.BlogActivity
 import com.example.padicare.databinding.ActivityHomeBinding
+import com.example.padicare.deteksi.DetectionActivity
+import com.example.padicare.edukasi.EdukasiActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
@@ -49,6 +52,18 @@ class HomeActivity : AppCompatActivity() {
         list.add(CarouselItem(imageDrawable = R.drawable.keempat))
 
         carousel.setData(list)
+
+        //Binding ke Edukasi
+        binding.cvArtikel.setOnClickListener {
+            val intent = Intent(this@HomeActivity, EdukasiActivity::class.java)
+            startActivity(intent)
+        }
+
+        //Binding ke Blog
+        binding.cvBlog.setOnClickListener {
+            val intent = Intent(this@HomeActivity, BlogActivity::class.java)
+            startActivity(intent)
+        }
 
         //Bottom navigation
         binding.bottomNavigationView.background = null

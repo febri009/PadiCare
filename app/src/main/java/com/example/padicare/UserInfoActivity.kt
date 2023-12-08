@@ -12,8 +12,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class UserInfoActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityUserInfoBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
+    lateinit var binding: ActivityUserInfoBinding
+    var auth: FirebaseAuth = FirebaseAuth.getInstance()  // Add this line
+    var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()  // Add this line
+    public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityUserInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)

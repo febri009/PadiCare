@@ -5,6 +5,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,10 +23,31 @@
         android:theme="@style/Theme.PadiCare"
         tools:targetApi="31">
         <activity
+            android:name=".deteksi.DetectionResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".deteksi.CameraActivity"
+            android:exported="false" />
+        <activity
+            android:name=".deteksi.DetectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".blog.CreatePostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".blog.CommentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".blog.BlogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".edukasi.EdukasiActivity"
+            android:exported="false" />
+        <activity
             android:name=".auth.ResetActivity"
             android:exported="false" />
         <activity
-            android:name=".DetectionActivity"
+            android:name=".ScanActivity"
             android:exported="false" />
         <activity
             android:name=".AboutActivity"
@@ -48,6 +77,14 @@
         <activity
             android:name=".auth.LoginActivity"
             android:exported="true" />
+        <activity
+            android:name=".edukasi.DetailActivity"
+            android:exported="false"
+            android:parentActivityName=".edukasi.EdukasiActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
     </application>
 
 </manifest>

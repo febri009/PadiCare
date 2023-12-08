@@ -4,90 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetectionActivity">
+    tools:context=".deteksi.DetectionActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/title_page"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="32dp"
+        android:text="@string/title_deteksi_tanaman"
+        android:textAppearance="@style/title_page"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/mOpsi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Opsi Deteksi"
-            android:textSize="16dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:textColor="@color/dark_yellow" />
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toBottomOf="@+id/title_page"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title_page"
+        app:srcCompat="@drawable/ic_back" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/button_camera"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:clickable="true"
-            android:background="@color/white"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="25dp"
-            app:cardElevation="5dp"
-            app:cardUseCompatPadding="true"
-            android:focusable="true">
+    <ImageView
+        android:id="@+id/iv_result_image"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="32dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_page"
+        app:srcCompat="@drawable/ic_picture" />
 
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_camera"
-                app:tint="@color/light_green_50"/>
+    <TextView
+        android:id="@+id/tv_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/choose_source"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_result_image" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Melalui Kamera"
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/light_green_50"
-                android:layout_marginTop="60dp"
-                android:layout_gravity="center"/>
-        </androidx.cardview.widget.CardView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/gallery_button"
+        android:layout_width="160dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button_source_gallery"
+        android:text="@string/galeri"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:paddingLeft="40dp"
+        android:paddingRight="35dp"
+        android:drawableStart="@drawable/galeri"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_source" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/button_gallery"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:clickable="true"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="25dp"
-            app:cardElevation="5dp"
-            app:cardUseCompatPadding="true"
-            android:focusable="true">
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/camera_button"
+        android:layout_width="160dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/button_source_camera"
+        android:drawableStart="@drawable/kamera"
+        android:paddingLeft="40dp"
+        android:paddingRight="35dp"
+        android:text="@string/kamera"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_source" />
 
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_galeri"
-                app:tint="@color/light_green_50"/>
+    <com.example.padicare.customview.DetectionButton
+        android:id="@+id/detection_button"
+        android:layout_width="340dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Melalui Galeri"
-                android:fontFamily="@font/poppins_regular"
-                android:textColor="@color/light_green_50"
-                android:layout_marginTop="60dp"
-                android:layout_gravity="center"/>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,84 @@
 <resources>
     <string name="app_name">PadiCare</string>
+    <string name="nama_cafe">Nama Cafe</string>
+    <string name="alamat">Alamat</string>
+    <string name="default_image">default image</string>
+    <string name="default_hours">Sumber: Dummy Data</string>
+    <string name="cafe_alamat">Alamat Lengkap</string>
+    <string name="cafe_cover">Anime Cover</string>
+
+    <string-array name="data_judul">
+        <item>Tahapan Budidaya Padi yang Efektif untuk Pemula</item>
+        <item>Penerapan Sistem Pertanian Organik pada Tanaman Padi: Menuju Budidaya yang Ramah Lingkungan</item>
+        <item>Teknik Budidaya Padi Sawah Bebas Residu</item>
+    </string-array>
+
+    <string-array name="data_sumber">
+        <item> Sumber: Dummy data </item>
+        <item> Sumber: Dummy data</item>
+        <item> Sumber: Among Wibowo, Disperpa Kota Magelang</item>
+    </string-array>
+
+    <string-array name="data_konten">
+        <item>Pertanian padi memegang peranan krusial dalam menjaga ketahanan pangan suatu negara. Bagi mereka yang baru terjun dalam dunia pertanian padi, memahami tahapan-tahapan budidaya yang efektif menjadi kunci kesuksesan. Berikut adalah rinciannya:\n\n
+            1. Persiapan Lahan :\nTahapan awal yang penting adalah persiapan lahan. Para petani pemula perlu memastikan bahwa lahan yang akan digunakan telah disiapkan dengan baik. Hal ini melibatkan pemilihan lokasi yang sesuai, pembersihan lahan dari gulma dan sisa-sisa tanaman sebelumnya, serta penerapan teknik pengolahan tanah yang tepat.\n
+            \n
+            2. Pemilihan Varietas Padi yang Sesuai:\nSetiap wilayah memiliki kondisi iklim dan tanah yang berbeda. Oleh karena itu, pemilihan varietas padi yang sesuai dengan kondisi tersebut sangat penting. Para pemula sebaiknya mencari informasi mengenai varietas padi yang tahan terhadap penyakit lokal dan dapat beradaptasi dengan baik pada lingkungan sekitarnya.\n
+            \n
+            3. Teknik Penanaman yang Tepat:\nTeknik penanaman padi memegang peranan penting dalam hasil panen. Petani pemula perlu memahami jarak tanam yang ideal, kedalaman tanam, dan pola tanam yang sesuai dengan varietas yang dipilih. Selain itu, penggunaan benih yang berkualitas juga berkontribusi pada pertumbuhan tanaman yang optimal.\n
+            \n
+            4. Perawatan Tanaman Padi:\nSelama masa pertumbuhan, tanaman padi memerlukan perawatan yang baik. Hal ini melibatkan pengaturan irigasi yang konsisten, pemupukan yang tepat pada waktu yang sesuai, dan pengendalian hama serta penyakit tanaman. Para petani pemula sebaiknya aktif memantau kondisi tanaman mereka untuk dapat merespons perubahan kondisi dengan cepat.\n
+            \n
+            5. Pemanenan dan Pasca Panen:\nProses pemanenan padi harus dilakukan pada waktu yang tepat untuk mendapatkan hasil yang optimal. Setelah panen, tahap pasca panen seperti pengeringan, pemilahan, dan penyimpanan padi juga perlu diperhatikan. Para pemula sebaiknya memahami teknik-teknik pasca panen agar kualitas padi tetap terjaga.\n
+            \n
+            Dengan memahami dan menerapkan tahapan-tahapan ini, para petani pemula dapat mengoptimalkan produksi padi mereka. Kesuksesan dalam budidaya padi tidak hanya ditentukan oleh pengetahuan teoritis, tetapi juga oleh penerapan praktik-praktik pertanian yang bijaksana dan berkelanjutan.
+        </item>
+
+        <item>Pertanian organik semakin menjadi fokus utama dalam upaya menjaga keberlanjutan lingkungan dan kesehatan masyarakat. Dalam artikel ini, kita akan menjelajahi secara rinci penerapan sistem pertanian organik khususnya pada budidaya padi, mengulas langkah-langkah penting dan manfaat yang dihasilkannya.\n\n
+            1. Penggunaan Pupuk Organik:\nSalah satu pilar utama pertanian organik adalah penggunaan pupuk organik. Artikel ini akan memberikan pemahaman mendalam mengenai jenis-jenis pupuk organik yang dapat digunakan dalam budidaya padi. Pupuk organik tidak hanya memberikan nutrisi esensial bagi tanaman padi tetapi juga meningkatkan kesehatan tanah dan mengurangi dampak negatif terhadap lingkungan, dibandingkan dengan pupuk kimia.\n
+            \n
+            2. Pengendalian Hama Alami:\nPertanian organik menekankan pengendalian hama yang lebih alami tanpa bergantung pada pestisida kimia berbahaya. Pembaca akan diberikan informasi mendalam mengenai metode pengendalian hama organik seperti penggunaan predator alami, tanaman pengusir hama, dan praktik pertanian terpadu. Dengan demikian, petani padi dapat mengurangi penggunaan pestisida berbahaya yang dapat mencemari tanah dan air.\n
+            \n
+            3. Manfaat Lingkungan:\nArtikel ini akan memberikan pemahaman komprehensif mengenai dampak positif pertanian organik terhadap lingkungan. Dari pengurangan jejak karbon hingga pelestarian keanekaragaman hayati, pembaca akan memahami kontribusi positif dari budidaya padi organik terhadap ekosistem secara keseluruhan.\n
+            \n
+            4. Kesehatan Tanaman dan Konsumen:\nPertanian organik tidak hanya memberikan manfaat bagi lingkungan tetapi juga untuk kesehatan tanaman dan konsumen. Artikel ini akan mengulas secara detail bagaimana tanaman padi yang ditanam secara organik cenderung lebih tahan terhadap penyakit dan memiliki kandungan nutrisi yang lebih tinggi. Selain itu, konsumen yang mengonsumsi produk padi organik dapat mengurangi paparan terhadap residu pestisida yang mungkin terdapat pada produk konvensional.\n
+            \n
+            5. Tips Praktis untuk Beralih ke Pertanian Organik:\nBagian akhir artikel ini akan memberikan tips praktis bagi petani padi yang ingin beralih ke pertanian organik. Mulai dari perencanaan tanaman hingga manajemen tanah, pembaca akan mendapatkan panduan praktis untuk memulai atau mengoptimalkan budidaya padi organik mereka.\n
+            \n
+            Dengan memahami secara mendalam penerapan sistem pertanian organik pada budidaya padi, diharapkan pembaca dapat melihat nilai tambah dari metode ini tidak hanya bagi lingkungan tetapi juga dalam aspek-aspek kesehatan dan keberlanjutan pertanian.
+
+        </item>
+
+        <item>Era pestisida memang menyerang dunia pertanian sejak pupuk buatan pertama kali ditemukan sekitar abad ke-19. Dengan penggunaan pupuk buatan itu, keuntungan lebih murah, lebih kuat, dan lebih gampang didistribusikan.\n\n
+        Metoda itu memiliki dampak jangka panjang yang merugikan, mulai turunnya nilai kesuburan tanah hingga permasalahan zat-zat kimia berbahaya. Pestisida kimia juga dapat menjadi residu pada produk yang dihasilkan.   Untuk menekan dampak merugikan tersebut perlu digalakkan budidaya tanaman yang mengurangi penggunaan pestisida kimia, melalui pengembangan budidaya padi bebas residu untuk menghasilkan gabah/beras yang berkualitas.\n\n
+        Untuk menciptakan masyarakat Indonesia yang sehat dan berkualitas maka harus tersedia pangan secara cukup dan bermutu.   Beras yang dikonsumsi harus beras sehat bebas residu  bahan kimia,  khususnya  residu  pestisida  yang  dapat membahayakan kesehatan manusia.\n\n
+        Pestisida kimia perlu diganti dengan teknologi pengendalian alternatif, yang lebih banyak memanfaatkan bahan dan metode hayati, termasuk musuh alami, pestisida hayati dan feromon. Dengan cara ini, dampak negatif penggunaan pestisida terhadap kesehatan dan lingkungan dapat dikurangi.\n\n
+        Beberapa dampak negatif dari sistem pertanian konvensional adalah pencemaran air tanah dan air permukaan;  membahayakan kesehatan manusia dan hewan, baik karena pestisida maupun bahan aditif pakan;  pengaruh negatif senyawa kimia pertanian tersebut pada mutu dan kesehatan makanan; penurunan keanekaragaman hayati;  perusakan dan pembunuhan satwa liar, lebah madu, dan jasad berguna lainnya; meningkatnya daya ketahanan organisme pengganggu terhadap pestisida; merosotnya produktivitas lahan karena erosi, pemadatan lahan, dan berkurangnya bahan organik; ketergantungan yang makin kuat terhadap sumber daya alam tidak terbaharui (non-renewable natural resources); resiko kesehatan dan keamanan manusia pelaku pekerjaan pertanian.\n\n
+        Budidaya padi bebas residu atau pertanian organik pada dasarnya tidak berbeda dengan budidaya padi secara konvensional. Pertanian organik biasanya diawali dengan pemilihan benih tanaman non-hibrida yang dimaksudkan untuk mempertahankan keanekaragaman hayati. Tanaman non-hibrida sendiri secara teknis memang memungkinkan untuk ditanam tanpa menggunakan bahan kimia atau dapat tumbuh dan berproduksi pada kondisi alami. Sementara tanaman hibrida biasanya dikondisikan seperti harus menggunakan pupuk kimia atau pemberantasan hanya dengan pestisida kimia. Perbedaan lainnya  antara tanaman padi non-hibrida dan tanaman padi hibrida adalah pada penggunaan pupuk dasar.\n\n
+        Pertanian organik  sebagai  sistem budidaya pertanian yang memanfaatkan bahan- bahan  alami tanpa  menggunakan  bahan  kimia sintetis.  Pertanian  organik berkembang  karena adanya kesadaran masyarakat terkait sistem pertanian berbasis high input energy seperti pupuk dan pestisida kimia sintetis yang dapat  merusak lingkungan dan tidak baik bagi kesehatan manusia.\n\n
+        Keberlanjutan pertanian organik, tidak dapat dipisahkan dari dimensi ekonomi, selain dimensi lingkungan dan  dimensi sosial. Aspek  ekonomi dikatakan berkelanjutan apabila produksi pertaniannya mampu mencukupi kebutuhan dan memberikan pendapatan yang cukup bagi petani. Pertanian organik juga menjadi salah satu tujuan  pembangunan berkelanjutan (sustainable development goals) yaitu untuk  mengentaskan kemiskinan, meningkatkan   ketahanan   pangan dan nutrisi serta mendorong berkembangnya pertanian berkelanjutan.\n\n
+        Pada tahun 2019, pemerintah menggalakkan budidaya padi bebas organik dengan menyalurkan bantuan sarana produksi pertanian berupa benih padi Inbrida; pupuk organik sebagai pembedah tanah; pestisida hayati; pupuk hayati dan pupuk anorganik yang ditujukan untuk  meningkatkan  produksi,  produktivitas,  mutu hasil serta meningkatkan nilai tambah dan pendapatan petani pada lahan seluas 60.000 hektar.\n\n
+        Sistem pertanian organik ini berpijak pada kesuburan tanah sebagai kunci keberhasilan produksi dengan memperhatikan kemampuan alami dari tanah, tanaman dan hewan untuk menghasilkan kualitas yang baik bagi hasil pertanian maupun lingkungan maka pendampingan sangat penting karena proses menjadikan Indonesia penghasil padi organik (bebas residu) tidak selesai hanya sampai pada penanaman melaikan hingga pemasarannya.\n\n
+        Untuk itu, pendampingan oleh para penyuluh perlu terus dilakukan agar cara bercocok tanam yang sesuai dengan kaidah pertanian organik dapat diwujudkan dan kesadaran masyarakat untuk mengkonsumsi produk organik (bebas residu) semakin meningkat sehingga peluang pasar untuk beras organik (bebas residu) semakin terbuka
+
+        </item>
+    </string-array>
+
+    <string-array name="data_cover">
+        <item>https://1.bp.blogspot.com/-M8yvi1YxV34/YHQV11ZZ1_I/AAAAAAAAKMg/_Axl-11b9vgcIgekS0rt2T3Q0jduff-agCLcBGAsYHQ/w640-h360/cara%2Bperawatan%2Bpadi%2Bdari%2Bawal%2Bsampai%2Bpanen.jpg</item>
+        <item>https://faperta.umsu.ac.id/wp-content/uploads/2022/11/pertanian-organik.jpeg</item>
+        <item> https://cdns.klimg.com/merdeka.com/i/w/news/2020/11/29/1247783/540x270/padi-bebas-residu-jadi-harapan-baru-petani-pangandaran.jpeg</item>
+    </string-array>
+
+    <string name="title_deteksi_tanaman">Deteksi Tanaman</string>
+    <string name="choose_source">Pilih sumber gambar</string>
+    <string name="galeri">Galeri</string>
+    <string name="kamera">Kamera</string>
+    <string name="title_hasil_deteksi">Hasil Deteksi</string>
+    <string name="result_title_detect">Gejala Bintik Daun Bakteri</string>
+    <string name="percentage_accurate">Persentase Keakuratan : </string>
+    <string name="result_percentage">80%</string>
+    <string name="treatment">Langkah Penanganan :</string>
+    <string name="result_treatment">1. Sanitasi kebun\n2. Mengurangi kelembaban\n3. Daun-daun bawah yang terinfeksi secepatnya diambil agar tidak menjadi sumber penularan\n4. Pemanenan tepat waktu\n5. Eradikasi tanaman yang sakit\n6. Penyemprotan dengan fungisida berbahan aktif Mancozeb, Captan, Captafol, Metil tiofanat, Benomil , Antracol</string>
+    <string name="beranda">Beranda</string>
 </resources>

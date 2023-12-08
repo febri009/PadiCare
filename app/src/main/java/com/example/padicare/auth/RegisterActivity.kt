@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.example.padicare.HomeActivity
 import com.example.padicare.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterActivity : AppCompatActivity() {
